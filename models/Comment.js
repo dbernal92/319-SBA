@@ -8,29 +8,24 @@ const commentSchema = new mongoose.Schema(
             unique: true,
         },
         movie_id: {
-            type: String,
+            type: mongoose.Schema.Types.ObjectId,
             required: true,
         },
         text: {
             type: String,
             required: true,
-            unique: true,
-        },
-        date: {
-            type: String,
-            required: true,
-            unique: true,
-        },
-        email: {
-            type: String,
-            required: true,
-            unique: true,
         },
     },
     { timestamps: true }
 )
 
-userSchema. index({username: 1});
-userSchema.index({email: 1});
+// commentSchema. index({name: 1});
+commentSchema.index({movie_id: 1});
+commentSchema.index({text: 1})
 
-export default mongoose.model("User", userSchema);
+export default mongoose.model("Comment", commentSchema);
+
+
+// mongodb+srv://darienbernal:DariScorpiHeart92!@cluster0.lv2by.mongodb.net/sample_mflix
+
+// mongodb+srv://<username>:<password>@cluster0.xxxxx.mongodb.net/sample_mflix

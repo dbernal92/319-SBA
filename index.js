@@ -8,6 +8,7 @@ import mongoose from "mongoose";
 // Routers
 import { healthRouter } from "./routes/health.js";
 import userRouter from "./routes/user.js";
+import commentRouter from "./routes/comment.js";
 
 dotenv.config();
 // console.log(process.env.MONGODB_URI);
@@ -34,6 +35,7 @@ app.use(morgan("dev"));
 app.use(helmet());
 app.use(cors());
 
+
 // Routes
 app.get("/", (req, res) => {
   res.render("index");
@@ -42,7 +44,7 @@ app.get("/", (req, res) => {
 // API Routes
 app.use("/api/health", healthRouter);
 app.use("/api/user", userRouter);
-
+app.use("/comments", commentRouter)
 
 // Global error handling
 app.use((err, req, res, next) => {

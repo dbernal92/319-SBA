@@ -25,6 +25,6 @@ const movieSchema = new mongoose.Schema(
 movieSchema. index({title: 1});
 movieSchema.index({plot: 1});
 movieSchema. index({runtime: 1});
-moviechema.index({rated: 1});
+movieSchema.index({rated: 1});
 
 export default mongoose.model("Movie", movieSchema);
